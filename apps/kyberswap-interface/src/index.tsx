@@ -39,6 +39,7 @@ import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
+import { SuiteProviderWrapper } from 'components/SuiteProvider'
 
 dayjs.extend(utc)
 dayjs.extend(duration)
@@ -133,7 +134,9 @@ const ReactApp = () => {
                   <ThemeProvider>
                     <ThemedGlobalStyle />
                     <SolanaProvider>
-                      <App />
+                      <SuiteProviderWrapper>
+                        <App />
+                      </SuiteProviderWrapper>
                     </SolanaProvider>
                   </ThemeProvider>
                 </NEARWalletProvider>
